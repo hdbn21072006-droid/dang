@@ -4,7 +4,7 @@ services:
     name: student-management-backend
     runtime: node
     plan: free
-    buildCommand: (cd src/backend && cp ../backend-package.json package.json && npm install --ignore-scripts && npm run build)
+    buildCommand: cd src/backend && npm install && npm run build
     startCommand: node dist-backend/index.js
     envVars:
       - key: NODE_ENV
