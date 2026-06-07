@@ -1,4 +1,3 @@
-import mysql from 'mysql2';
 import { dbPool } from '../config/database';
 import type {
 	ChatMessage,

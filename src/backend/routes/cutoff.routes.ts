@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { dbPool } from '../config/database';
-import type mysql from 'mysql2/promise';
 
 const router = Router();
 

@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import mysql, { RowDataPacket } from 'mysql2';
 import { dbPool } from '../config/database';
 import {
 	generateStreamingResponse,

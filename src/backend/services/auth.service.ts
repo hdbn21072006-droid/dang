@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import { RowDataPacket, ResultSetHeader } from 'mysql2';
 import { dbPool } from '../config/database';
 import type { LoginPayload, RegisterPayload, UserRecord } from '../types/auth';
 import { sendPasswordResetEmail } from '../utils/email';

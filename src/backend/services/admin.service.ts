@@ -1,4 +1,3 @@
-import { RowDataPacket } from 'mysql2';
 import { dbPool } from '../config/database';
 import type { ApplicationStatus } from '../types/admission';
 

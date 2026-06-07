@@ -1,6 +1,5 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { dbPool } from '../config/database';
 import type {
 	AdmissionAcademicInfoPayload,
