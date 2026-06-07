@@ -1,4 +1,3 @@
-import mysql from 'mysql2';
 import { dbPool } from '../config/database';
 
 // ──────────────────────────────────────────────
@@ -522,11 +521,11 @@ async function migrate() {
 
 		let inserted = 0;
 		for (const entry of knowledgeEntries) {
-			const [existing] = await dbPool.query<mysql.RowDataPacket[]>(
+			const existing = await dbPool.query(
 				'SELECT id FROM recruitment_knowledge WHERE content = ? AND school_id = ?',
 				[entry.content, entry.school_id],
 			);
-			if (existing.length > 0) continue;
+			if ((existing as any).rows && (existing as any).rows.length > 0) continue;
 
 			let embedding: number[];
 			if (USE_REAL_EMBEDDING) {
@@ -551,11 +550,12 @@ async function migrate() {
 		}
 
 		// ── 4. Verify ──
-		const [count] = await dbPool.query<mysql.RowDataPacket[]>(
+		const count = await dbPool.query(
 			'SELECT school_id, COUNT(*) as total FROM recruitment_knowledge WHERE school_id IS NOT NULL GROUP BY school_id',
 		);
-		const total = (count as Array<{ school_id: string; total: number }>).reduce((s, r) => s + r.total, 0);
-		console.log(`\nKnowledge base: ${total} entries across ${(count as Array<{ school_id: string; total: number }>).length} schools.`);
+		const rows = (count as any).rows || [];
+		const total = rows.reduce((s: number, r: any) => s + Number(r.total), 0);
+		console.log(`\nKnowledge base: ${total} entries across ${rows.length} schools.`);
 		if (USE_REAL_EMBEDDING) {
 			console.log(`New entries inserted this run: ${inserted}`);
 		}
