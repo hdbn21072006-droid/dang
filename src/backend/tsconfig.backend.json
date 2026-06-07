@@ -7,7 +7,9 @@
 		"strict": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"outDir": "dist-backend"
+		"outDir": "dist-backend",
+		"ignoreDeprecations": "6.0"
 	},
-	"include": ["src/backend/**/*"]
+	"include": ["**/*"],
+	"exclude": ["dist-backend"]
 }
