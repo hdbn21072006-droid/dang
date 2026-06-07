@@ -17,7 +17,13 @@ const app = express();
 const httpServer = createServer(app);
 const io = new SocketIOServer(httpServer, {
 	cors: {
-		origin: ['http://localhost:8000', 'http://localhost:3000', 'http://127.0.0.1:8000'],
+		origin: [
+			'http://localhost:8000',
+			'http://localhost:3000',
+			'http://127.0.0.1:8000',
+			'https://*.netlify.app',
+			'https://*.onrender.com'
+		],
 		methods: ['GET', 'POST'],
 		credentials: true,
 	},
