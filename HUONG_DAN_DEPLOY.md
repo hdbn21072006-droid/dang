@@ -1,7 +1,7 @@
 # Hướng Dẫn Deploy Dự Án lên Render và Netlify
 
 Hướng dẫn này giúp bạn deploy dự án Student Management System lên:
-- **Render**: Backend API + MySQL Database
+- **Render**: Backend API + PostgreSQL Database
 - **Netlify**: Frontend React App
 
 ---
@@ -10,7 +10,7 @@ Hướng dẫn này giúp bạn deploy dự án Student Management System lên:
 
 ```
 ┌─────────────────┐         ┌─────────────────┐         ┌─────────────────┐
-│   Netlify       │         │    Render       │         │  Render MySQL   │
+│   Netlify       │         │    Render       │         │  Render PostgreSQL│
 │   (Frontend)    │◄────────►│   (Backend)     │◄────────►│   Database      │
 │   React App     │  HTTPS   │   Express API   │  TCP    │   Student DB    │
 └─────────────────┘         └─────────────────┘         └─────────────────┘
@@ -18,7 +18,7 @@ Hướng dẫn này giúp bạn deploy dự án Student Management System lên:
 
 - **Frontend**: Static React app deploy trên Netlify
 - **Backend**: Express + Socket.IO deploy trên Render
-- **Database**: MySQL deploy trên Render
+- **Database**: PostgreSQL deploy trên Render
 
 ---
 
@@ -77,7 +77,7 @@ const io = new SocketIOServer(httpServer, {
 
 1. Đăng nhập vào Render: https://dashboard.render.com
 2. Click **New +** → **Database**
-3. Chọn **MySQL**
+3. Chọn **PostgreSQL**
 4. Đặt tên: `student-management-db`
 5. Chọn plan: **Free**
 6. Click **Create Database**
@@ -145,7 +145,7 @@ cd src/backend
 npm run migrate
 ```
 
-Hoặc chạy trực tiếp SQL migration qua MySQL Workbench kết nối đến database Render.
+Hoặc chạy trực tiếp SQL migration qua pgAdmin hoặc psql kết nối đến database Render. Sử dụng file `src/backend/database/init_postgres.sql`.
 
 ---
 
@@ -351,7 +351,7 @@ Tổng chi phí: **$0/tháng** cho personal project.
 
 - Render Docs: https://render.com/docs
 - Netlify Docs: https://docs.netlify.com
-- MySQL on Render: https://render.com/docs/databases/mysql
+- PostgreSQL on Render: https://render.com/docs/databases/postgresql
 
 ---
 

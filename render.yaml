@@ -49,7 +49,7 @@ services:
         value: 5
 
 databases:
-  # MySQL Database
+  # PostgreSQL Database
   - name: student-management-db
     databaseName: student_management
     user: student_app
