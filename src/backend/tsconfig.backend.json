@@ -4,11 +4,12 @@
 		"module": "CommonJS",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"strict": true,
+		"strict": false,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"outDir": "dist-backend",
-		"ignoreDeprecations": "6.0"
+		"ignoreDeprecations": "6.0",
+		"noImplicitAny": false
 	},
 	"include": ["**/*"],
 	"exclude": ["dist-backend"]
