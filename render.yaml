@@ -4,7 +4,7 @@ services:
     name: student-management-backend
     runtime: node
     plan: free
-    buildCommand: cd src/backend && npm install && npm run build
+    buildCommand: cd src/backend && yarn install && yarn build
     startCommand: node dist-backend/index.js
     envVars:
       - key: NODE_ENV
@@ -12,31 +12,21 @@ services:
       - key: BACKEND_PORT
         value: 5000
       - key: DB_HOST
-        fromDatabase:
-          name: student-management-db
-          property: host
+        value: dpg-d8inc9u7r5hc73d3qi10-a
       - key: DB_PORT
-        fromDatabase:
-          name: student-management-db
-          property: port
+        value: 5432
       - key: DB_USER
-        fromDatabase:
-          name: student-management-db
-          property: user
+        value: student_app
       - key: DB_PASSWORD
-        fromDatabase:
-          name: student-management-db
-          property: password
+        value: CbTm5QybkWHLrtUZuZD6fy6fqrlpVqRF
       - key: DB_NAME
-        fromDatabase:
-          name: student-management-db
-          property: database
+        value: student_management_hcj1
       - key: JWT_SECRET
-        generateValue: true
+        value: my-secret-key-12345abc
       - key: GMAIL_EMAIL
-        sync: false
+        value: hdbn21072006@gmail.com
       - key: GMAIL_APP_PASSWORD
-        sync: false
+        value: llwp shcv btui wmyi
       - key: GEMINI_API_KEY
         sync: false
       - key: LLM_PROVIDER
