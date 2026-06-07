@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.backend.json",
     "start": "node dist-backend/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only --project tsconfig.backend.json src/backend/index.ts",
-    "migrate": "ts-node-dev --transpile-only --project tsconfig.backend.json src/backend/database/migrate.ts"
+    "dev": "ts-node-dev --respawn --transpile-only --project tsconfig.backend.json index.ts",
+    "migrate": "ts-node-dev --transpile-only --project tsconfig.backend.json database/migrate.ts"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
